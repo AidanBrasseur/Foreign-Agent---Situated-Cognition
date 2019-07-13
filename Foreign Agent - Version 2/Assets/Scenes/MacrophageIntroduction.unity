@@ -4577,7 +4577,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f8c9b083096beed4dbf944eab8f46498, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.21
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5139,13 +5139,13 @@ PrefabInstance:
       propertyPath: stage
       value: 
       objectReference: {fileID: 1546779888}
-    - target: {fileID: 149230227, guid: 853533ce91ac24e44975e5d112cdd36a, type: 3}
-      propertyPath: obstacleMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     - target: {fileID: 284958003, guid: 853533ce91ac24e44975e5d112cdd36a, type: 3}
       propertyPath: m_Layer
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 149230227, guid: 853533ce91ac24e44975e5d112cdd36a, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 853533ce91ac24e44975e5d112cdd36a, type: 3}
