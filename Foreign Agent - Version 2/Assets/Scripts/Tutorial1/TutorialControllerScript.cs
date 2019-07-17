@@ -29,7 +29,9 @@ public class TutorialControllerScript : MonoBehaviour
 
     public AudioSource victorySound;
 	public Image grayScreen;
-
+    private bool firstCameraPan = false;
+    public GameObject zoomedOutCam;
+    public RPGTalk IntroTalk;
     void Start()
     {
         m_Animator = player.GetComponent<Animator>();
@@ -78,6 +80,11 @@ public class TutorialControllerScript : MonoBehaviour
     }
     void LateUpdate()
     {
+        if(!firstCameraPan)
+        {
+            StartCoroutine(cameraPan());
+            firstCameraPan = true;
+        }
         if (!companionPlayed && tutCell.GetComponentInChildren<CellCapture>().capped)
         {
             CancelControls();
@@ -205,7 +212,16 @@ public class TutorialControllerScript : MonoBehaviour
         UITalk.NewTalk("UIemphasisStart", "UIemphasisEnd", UITalk.txtToParse);
     }
 
-
+    IEnumerator cameraPan()
+    {
+        CancelControls();
+        grayScreen.enabled = false;
+        yield return new WaitForSeconds(2);
+        zoomedOutCam.SetActive(false);
+        yield return new WaitForSeconds(2);
+        grayScreen.enabled = true;
+        IntroTalk.NewTalk("IntroTalkStart", "IntroTalkEnd", IntroTalk.txtToParse);
+    }
 
 }
 
