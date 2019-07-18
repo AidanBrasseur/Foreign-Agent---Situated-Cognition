@@ -14,7 +14,6 @@ public class BIntroController : MonoBehaviour
 	public Image grayScreen;
 
 	private bool endPlayed = false;
-	public GameObject endCell;
 	public GameObject firstCell;
 	public GameObject endMenu;
 	public AudioSource victorySound;
@@ -54,7 +53,7 @@ public class BIntroController : MonoBehaviour
 		{
 			frozenMacrophage.GetComponent<Transform>().position = frozenPos;
 		}
-		if (!endPlayed && endCell.GetComponentInChildren<CellCapture>().capped)
+		if (!endPlayed && GameController.Instance.numCaptures == GameController.Instance.numCellsInLevel)
 		{
 			CancelControls();
 			endMenu.SetActive(false);
