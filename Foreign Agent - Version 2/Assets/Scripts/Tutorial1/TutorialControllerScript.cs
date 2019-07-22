@@ -42,6 +42,7 @@ public class TutorialControllerScript : MonoBehaviour
     {
         player.GetComponent<PlayerMovement>().dashStart = false;
         player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<PlayerAlignToGround>().enabled = false;
         player.GetComponent<companionSpawn>().enabled = false;
       
         m_Animator.SetBool("IsWalking", false);
@@ -52,7 +53,7 @@ public class TutorialControllerScript : MonoBehaviour
     //give back the controls to player
     public void GiveBackControls()
     {
-        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<PlayerAlignToGround>().enabled = true;
         player.GetComponent<companionSpawn>().enabled = true;
 		grayScreen.enabled = false;
 	}
