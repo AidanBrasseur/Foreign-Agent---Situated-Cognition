@@ -32,6 +32,7 @@ public class PlayerAlignToGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         dash = maxDash;
@@ -143,13 +144,13 @@ public class PlayerAlignToGround : MonoBehaviour
         slider.value = complete;
 
 
-        if (GameController.Instance.numCaptures == GameController.Instance.numCellsInLevel)
-        {
-            GetComponent<Collider>().enabled = false;
-            slider.gameObject.SetActive(false);
-            this.enabled = false;
-            Debug.Log("slider");
-        }
+        //if (GameController.Instance.numCaptures == GameController.Instance.numCellsInLevel)
+        //{
+        //    GetComponent<Collider>().enabled = false;
+        //    slider.gameObject.SetActive(false);
+        //    this.enabled = false;
+        //    Debug.Log("slider");
+        //}
     }
     private void OnCollisionEnter(Collision other)
     {
