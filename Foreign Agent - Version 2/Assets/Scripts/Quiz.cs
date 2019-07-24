@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Quiz : MonoBehaviour
@@ -12,9 +13,17 @@ public class Quiz : MonoBehaviour
 	public bool correct;
 	private string[] questions = {
 		"Throughout the game, these question panels will pop up from time to time to test your knowledge. To proceed, choose the right answer.",
+		"",
+		"",
+		"",
 		"What do macrophages do?",
+		"",
+		"",
 		"What is the function of a Helper T Cell?",
+		"",
+		"",
 		"What is the purpose of a Killer T Cell?",
+		"", // 1.2
 		"What do activated B cells do?",
 		"What is the function of skin in the immune system?",
 		"What are antibodies?",
@@ -25,9 +34,17 @@ public class Quiz : MonoBehaviour
 	private int index = 0;
 	private string[][] answers = {
 		new string[] {"correctAnswer I understand.", "Don't click me!", "I am a wrong answer!", "Incorrect!"},
+		new string[] { },
+		new string[] { },
+		new string[] { },
 		new string[] {"Transport oxygen throughout the immune system", "Defeat foreign agents by stopping them from using cell machinery to replicate", "correctAnswer Kill foreign agents by engulfing them", "All of the above"},
+		new string[] { },
+		new string[] { },
 		new string[] {"Transport nutrients to other cells in the immune system", "correctAnswer Activate B cells and aid Killer T cells", "Stimulate growth of macrophages", "Produce antibodies to help slow down foreign particles" },
+		new string[] { },
+		new string[] { },
 		new string[] {"correctAnswer Kill infected cells", "Kill foreign agents directly", "Produce antibodies", "Transport nutrients"},
+		new string[] { },
 		new string[] {"Kill infected cells", "correctAnswer Produce antibodies to slow down and make foreign agents easier to detect", "Activate Killer T cells", "Chase foreign agents and engulf them"},
 		new string[] {"correctAnswer Prevents most infectious organisms from entering the body", "Nothing", "Contains macrophages and cytotoxic T cells, which exterminate infectious organisms", "Alerts the immune system and prepare it to deal with foreign organisms"},
 		new string[] {"A specialized B cell", "A type of white blood cell", "A Y-shaped carbohydrate group", "correctAnswer A Y-shaped protein"},
@@ -43,7 +60,7 @@ public class Quiz : MonoBehaviour
 	public void GenerateNewQuestion()
 	{
 		correct = false;
-		int curInd = index++;
+		int curInd = SceneManager.GetActiveScene().buildIndex;
 		string[] curAnswers = answers[curInd];
 		for (int i = 0; i < curAnswers.Length; i++)
 		{
