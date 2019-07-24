@@ -65,7 +65,7 @@ public class LoadingScreen : MonoBehaviour
 	private string[] loadingTexts;
 	public Image background;
 	private Image loadImg;
-
+    public bool hideImage = false;
 	private void Awake()
     {
         // Singleton logic:
@@ -90,18 +90,21 @@ public class LoadingScreen : MonoBehaviour
 		int index = (int)Random.Range(0, loadingTexts.Length);
 		Debug.Log(loadingTexts[index]);
 		tutorialText.text = loadingTexts[index];
-		loadImg = Instantiate(loadingImages[loadTextIndex[y][index]]);
+        if (!hideImage)
+        {
+            loadImg = Instantiate(loadingImages[loadTextIndex[y][index]]);
 
-		Rect spriteRect = loadImg.sprite.rect;
-		float spriteWidth = spriteRect.width;
-		float spriteHeight = spriteRect.height;
-		loadImg.enabled = true;
-		loadImg.transform.SetParent(loadParent.transform);
+            Rect spriteRect = loadImg.sprite.rect;
+            float spriteWidth = spriteRect.width;
+            float spriteHeight = spriteRect.height;
+            loadImg.enabled = true;
+            loadImg.transform.SetParent(loadParent.transform);
 
-		loadImg.rectTransform.sizeDelta = new Vector2(500.0f / spriteRect.height * spriteWidth, 500);
-		loadImg.rectTransform.localPosition = new Vector3(0, 250, 0);
+            loadImg.rectTransform.sizeDelta = new Vector2(500.0f / spriteRect.height * spriteWidth, 500);
+            loadImg.rectTransform.localPosition = new Vector3(0, 250, 0);
 
-		loadImg.transform.gameObject.AddComponent<fadeWithBackground>();
+            loadImg.transform.gameObject.AddComponent<fadeWithBackground>();
+        }
 	}
 	private void Configure()
     {

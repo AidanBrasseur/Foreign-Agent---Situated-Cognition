@@ -75,7 +75,14 @@ public class Quiz : MonoBehaviour
 		for (int i = 0; i < answerObjects.Length; i++)
 		{
 			answerObjects[i].transform.GetChild(0).gameObject.GetComponent<Text>().text = curAnswers[i];
-		}
+            if (i != correctIndex)
+            {
+                ColorBlock cb = answerObjects[i].gameObject.GetComponent<Button>().colors;
+                cb.selectedColor = Color.red;
+                answerObjects[i].gameObject.GetComponent<Button>().colors = cb;
+            }
+
+        }
 
 
 	}
