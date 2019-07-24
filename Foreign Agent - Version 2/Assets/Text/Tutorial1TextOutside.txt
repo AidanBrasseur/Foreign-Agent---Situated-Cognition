@@ -1,0 +1,19 @@
+[title=IntroTalkStart]
+Hello! Welcome to the VIA - the Viral Infection Agency.
+Since you're a new virus here I'll walk you through our basic protocol.
+Move around using the WASD keys.
+[title=IntroTalkEnd]
+
+[title=dashInstructionStart]
+Press and hold <b>SHIFT</b> while moving to sprint! The meter displays your remaining energy. 
+[title=dashInstructionEnd]
+
+[title=skinDialogueStart]
+Don't waste your energy trying to break through the skin.
+The skin is the body's first line of defense against viruses.
+You'll have to find another way inside...
+[title=skinDialogueEnd]
+
+[title=endLevelStart]
+Congratulations! You've successfully completed your first infection.
+[title=endLevelEnd]
