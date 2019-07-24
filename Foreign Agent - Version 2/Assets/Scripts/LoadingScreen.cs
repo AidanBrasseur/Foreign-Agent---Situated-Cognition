@@ -9,6 +9,9 @@ public class LoadingScreen : MonoBehaviour
 
 	public TextAsset txtFile;
 	public TextMeshProUGUI tutorialText;
+	public GameObject quizPanel;
+	public bool enableQuiz;
+	
 	private readonly Dictionary<int, List<int>> loadTextIndex = new Dictionary<int, List<int>> // level index --> possible text
 	{
 		{ 0, new List<int>{0}}, // MainMenu
@@ -55,9 +58,11 @@ public class LoadingScreen : MonoBehaviour
     // The animator of the loading screen:
     private Animator animator;
     // Flag whether the fade out animation was triggered.
-    private bool didTriggerFadeOutAnimation;
+    public bool didTriggerFadeOutAnimation;
+	public float alpha;
     public GameObject prevMenu;
 	private string[] loadingTexts;
+	public Image background;
     private void Awake()
     {
         // Singleton logic:
@@ -66,6 +71,7 @@ public class LoadingScreen : MonoBehaviour
         Configure();
         Hide();
 		LoadText();
+		quizPanel.SetActive(false);
     }
 	private void LoadText()
 	{
@@ -87,7 +93,7 @@ public class LoadingScreen : MonoBehaviour
     {
         // Save the bar fill's initial local scale:
         barFillLocalScale = barFillRectTransform.localScale;
-        // Enable/disable the progress bar based on configuration:
+        // Enable/disable the progress bar based on configuration:1
         barFillRectTransform.transform.parent.gameObject.SetActive(!hideProgressBar);
         // Enable/disable the percentage text based on configuration:
         percentLoadedText.gameObject.SetActive(!hidePercentageText);
@@ -98,27 +104,54 @@ public class LoadingScreen : MonoBehaviour
     {
         if (isLoading)
         {
+			alpha = background.GetComponent<Graphic>().color.a;
             // Get the progress and update the UI. Goes from 0 (start) to 1 (end):
             SetProgress(currentLoadingOperation.progress);
-            // If the loading is complete and the fade out animation has not been triggered yet, trigger it:
+			// If the loading is complete and the fade out animation has not been triggered yet, trigger it:
             if (currentLoadingOperation.isDone && !didTriggerFadeOutAnimation)
             {
-                animator.SetTrigger("Hide");
+				animator.SetTrigger("Hide");
                 didTriggerFadeOutAnimation = true;
-                Destroy(gameObject, 5f);
+
+				Destroy(gameObject, 5f);
             }
             else
             {
                 timeElapsed += Time.deltaTime;
                 if (timeElapsed >= MIN_TIME_TO_SHOW)
                 {
-                    // The loading screen has been showing for the minimum time required.
-                    // Allow the loading operation to formally finish:
-                    currentLoadingOperation.allowSceneActivation = true;
+					// The loading screen has been showing for the minimum time required.
+					// Allow the loading operation to formally finish:
+					//Debug.Log("ending loading screen");
+					if (enableQuiz)
+					{
+						if (!quizPanel.activeSelf)
+						{
+							ActivateQuiz();
+						}
+						
+						if (quizPanel.GetComponent<Quiz>().correct)
+						{
+							currentLoadingOperation.allowSceneActivation = true;
+
+						}
+					}
+					else {
+						currentLoadingOperation.allowSceneActivation = true;
+					}
+                    
                 }
             }
         }
     }
+
+	private void ActivateQuiz()
+	{
+		quizPanel.SetActive(true);
+		quizPanel.GetComponent<Quiz>().GenerateNewQuestion();
+
+	}
+
     // Updates the UI based on the progress:
     private void SetProgress(float progress)
     {
