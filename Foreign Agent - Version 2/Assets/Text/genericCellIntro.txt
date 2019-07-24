@@ -1,0 +1,5 @@
+[title=IntroTalkStart]
+These cells have mutated so that their cell surface marker proteins are misformed. 
+You won't be able to identify them visually, but we've managed to tag each cell with their name. 
+Good luck agent!
+[title=IntroTalkEnd]
