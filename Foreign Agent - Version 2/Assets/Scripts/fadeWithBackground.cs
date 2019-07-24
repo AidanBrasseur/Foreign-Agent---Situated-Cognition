@@ -19,13 +19,20 @@ public class fadeWithBackground : MonoBehaviour
             newColour.a = backColour.a;
             GetComponent<Graphic>().color = newColour;
         }
-        else
+        else if (GetComponent<TextMeshProUGUI>() != null)
         {
 
             newColour = GetComponent<TextMeshProUGUI>().color;
             backColour = transform.parent.gameObject.GetComponent<Graphic>().color;
             newColour.a = backColour.a;
             GetComponent<TextMeshProUGUI>().color = newColour;
+        }
+        else if(GetComponent<MeshRenderer>() != null)
+        {
+            newColour = GetComponent<MeshRenderer>().material.color;
+            backColour = transform.parent.gameObject.GetComponent<Graphic>().color;
+            newColour.a = backColour.a;
+            GetComponent<MeshRenderer>().material.color = newColour;
         }
     }
 }
