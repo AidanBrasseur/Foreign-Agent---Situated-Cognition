@@ -23,6 +23,7 @@ public class EatingEnding : MonoBehaviour
         m_Animator.SetBool("isEating", true);
         yield return new WaitForSeconds(1.6f);
         sandwich.GetComponent<MeshFilter>().sharedMesh = bitten;
+        yield return new WaitForSeconds(1f);
         int sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         loadingScreen.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(sceneIndex));
 
