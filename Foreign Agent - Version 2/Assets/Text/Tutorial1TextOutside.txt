@@ -9,8 +9,7 @@ Press and hold <b>SHIFT</b> while moving to sprint! The meter displays your rema
 [title=dashInstructionEnd]
 
 [title=skinDialogueStart]
-Don't waste your energy trying to break through the skin.
-The skin is the body's first line of defense against viruses.
+The skin is the body's first line of defense against viruses, so don't waste your energy trying to break through the skin.
 You'll have to find another way inside...
 [title=skinDialogueEnd]
 
