@@ -9,8 +9,12 @@ public class TCellIntro2 : MonoBehaviour
 	public GameObject player;
 	public RPGTalk introTalk;
 	private Animator m_Animator;
-
+	private bool endPlayed = false;
+	public RPGTalk endTalk;
+	public GameObject endMenu;
 	public Image grayScreen;
+	public AudioSource victorySound;
+
 	void Start()
 	{
 		m_Animator = player.GetComponent<Animator>();
@@ -33,6 +37,23 @@ public class TCellIntro2 : MonoBehaviour
 		player.GetComponent<PlayerMovement>().enabled = true;
 		player.GetComponent<companionSpawn>().enabled = true;
 		grayScreen.enabled = false;
+	}
+	void LateUpdate()
+	{
+		if (!endPlayed && GameController.Instance.numCaptures == GameController.Instance.numCellsInLevel)
+		{
+			CancelControls();
+			endMenu.SetActive(false);
+			Time.timeScale = 1.0f;
+			endTalk.NewTalk("endLevelStart", "endLevelEnd", endTalk.txtToParse);
+			endPlayed = true;
+		}
+	}
+	public void activateEndMenu()
+	{
+		victorySound.Play();
+		endMenu.SetActive(true);
+		Time.timeScale = 0f;
 	}
 }
 

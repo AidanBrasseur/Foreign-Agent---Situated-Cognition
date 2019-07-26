@@ -13,26 +13,26 @@ public class LoadingScreen : MonoBehaviour
 	public GameObject quizPanel;
 	public bool enableQuiz;
 	
-	private readonly Dictionary<int, List<int>> loadTextIndex = new Dictionary<int, List<int>> // level index --> possible text
+	private readonly int[][] loadTextIndex = new int[][] // level index --> possible text
 	{
-		{ 0, new List<int>{0}}, // MainMenu
-		{ 1, new List<int>{0, 1, 2, 3, 4, 5, 6}}, // Tutorial1
-		{ 2, new List<int>{0, 1, 2, 3, 4, 5, 6} }, //MacrophageIntro1
-		{ 3, new List<int>{0, 1, 2, 3, 4, 5, 6 } }, //MacrophageIntro2
-		{ 4, new List<int>{7, 8, 9, 10, 11, 12, 13} }, //BCellTutorial
-		{ 5, new List<int>{7, 8, 9, 10, 11, 12, 13} }, //BCellIntro
-		{ 6, new List<int>{7, 8, 9, 10, 11, 12, 13} }, //BCellIntro2
-		{ 7, new List<int>{14, 15, 16, 17} }, //TCellTutorial
-		{ 8, new List<int>{14, 15, 16, 17} }, //TCellIntro1
-		{ 9, new List<int>{14, 15, 16, 17} }, //TCellIntro2
-		{ 10, new List<int>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17} }, //1.2
-		{ 11, new List<int>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17} }, //1.3
-		{ 12, new List<int>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17} }, //1.4
-		{ 13, new List<int>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19} }, //2.1
-		{ 14, new List<int>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19} }, //2.2
-		{ 15, new List<int>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19} }, //2.3
-		{ 16, new List<int>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19} } //Vaccine?
-
+		new int[]{0}, // MainMenu
+		new int[]{0 }, //Tutorial2
+		new int[]{0, 1, 2, 3, 4, 5, 6}, // Tutorial1
+		new int[]{0, 1, 2, 3, 4, 5, 6}, //MacrophageIntro1
+		new int[]{0, 1, 2, 3, 4, 5, 6} , //MacrophageIntro2
+		new int[]{7, 8, 9, 10, 11, 12, 13},//BCellTutorial
+		new int[]{7, 8, 9, 10, 11, 12, 13}, //BCellIntro
+		new int[]{7, 8, 9, 10, 11, 12, 13}, //BCellIntro2
+		new int[]{14, 15, 16, 17}, //TCellTutorial
+		new int[]{14, 15, 16, 17}, //TCellIntro1
+		new int[]{14, 15, 16, 17}, //TCellIntro2
+		new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17}, //1.2
+		new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17}, //1.3
+		new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17}, //1.4
+		new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19}, //2.1
+		new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19}, //2.2
+		new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19}, //2.3
+		new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19} //Vaccine?
 	};
     // Make sure the loading screen shows for at least 1 second:
     private const float MIN_TIME_TO_SHOW = 5f;
@@ -81,8 +81,8 @@ public class LoadingScreen : MonoBehaviour
 		string[] texts = txtFile.text.Split('\n');
 		
 		int y = SceneManager.GetActiveScene().buildIndex;
-		loadingTexts = new string[loadTextIndex[y].Count];
-		for (int i=0; i<loadTextIndex[y].Count; i++)
+		loadingTexts = new string[loadTextIndex[y].Length];
+		for (int i=0; i<loadTextIndex[y].Length; i++)
 		{
 			loadingTexts[i] = texts[loadTextIndex[y][i]];
 		}
