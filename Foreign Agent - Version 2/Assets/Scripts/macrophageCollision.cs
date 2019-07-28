@@ -16,6 +16,8 @@ public class macrophageCollision : MonoBehaviour
 	private Vector3 frozenPos;
 	private float shakeSpeed = 0.05f;
     public GameObject stunEffect;
+    [HideInInspector]
+    public bool firstTeleport = false;
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -63,7 +65,7 @@ public class macrophageCollision : MonoBehaviour
     }
 	private void Update()
 	{
-		if (agent.isStopped && agent.hasPath)
+		if (agent.isStopped && agent.hasPath && !firstTeleport)
 		{
 			shakeSpeed -= 0.05f*(Time.deltaTime/3);
 			transform.position = frozenPos + UnityEngine.Random.insideUnitSphere * shakeSpeed;

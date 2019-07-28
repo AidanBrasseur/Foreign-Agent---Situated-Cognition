@@ -30,7 +30,7 @@ public class Patrol : MonoBehaviour
 	}
 
 
-    void GotoNextPoint()
+    public void GotoNextPoint()
     {
         // Returns if no points have been set up
         if (points.Length == 0)

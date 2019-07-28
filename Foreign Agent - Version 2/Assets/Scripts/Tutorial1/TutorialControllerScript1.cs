@@ -28,6 +28,7 @@ public class TutorialControllerScript1 : MonoBehaviour
 
     public AudioSource victorySound;
 	public Image grayScreen;
+    public Transform macrophageReturn;
     void Start()
     {
         m_Animator = player.GetComponent<Animator>();
@@ -70,10 +71,14 @@ public class TutorialControllerScript1 : MonoBehaviour
         }
         if (GameController.Instance.death)
         {
-
+            
             macrophage.GetComponent<FieldOfView>().detected = false;
             macrophage.GetComponent<Patrol>().chaseStart = false;
+            macrophage.GetComponent<macrophageCollision>().firstTeleport = true;
             player.transform.position = checkpoint.transform.position;
+            macrophage.transform.position = macrophageReturn.position;
+            macrophage.GetComponent<Patrol>().GotoNextPoint();
+            
             CancelControls();
             player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             deathTalk.NewTalk("deathStart", "deathEnd", deathTalk.txtToParse);
