@@ -293,7 +293,7 @@ MonoBehaviour:
   passWithInputButton: 
   passWithKey: 32
   enablePass: 1
-  autoPass: 1
+  autoPass: 0
   secondsAutoPass: 2
   lineToStart: IntroTalkStart
   lineToBreak: IntroTalkEnd
@@ -4616,9 +4616,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038b69d6be7932f4a8145442d0cfbb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 0}
   questionText: {fileID: 941954570}
   answerObjects: []
   correct: 0
+  quizImages: []
+  hideImage: 0
 --- !u!114 &1351389417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8025,6 +8028,13 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 256605263}
+    - target: {fileID: 8432983764911044112, guid: 5b89ad06d999c004fa3032d80448046a,
+        type: 3}
+      propertyPath: m_text
+      value: 'T-HELPER CELLS INITIATED
+
+        PLASMA CELLS NOW ONLINE'
+      objectReference: {fileID: 0}
     - target: {fileID: 5998719074079411638, guid: 5b89ad06d999c004fa3032d80448046a,
         type: 3}
       propertyPath: eventSystem
@@ -8035,13 +8045,6 @@ PrefabInstance:
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 668317297}
-    - target: {fileID: 8432983764911044112, guid: 5b89ad06d999c004fa3032d80448046a,
-        type: 3}
-      propertyPath: m_text
-      value: 'T-HELPER CELLS INITIATED
-
-        PLASMA CELLS NOW ONLINE'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b89ad06d999c004fa3032d80448046a, type: 3}
 --- !u!1 &5998719074650404740 stripped
