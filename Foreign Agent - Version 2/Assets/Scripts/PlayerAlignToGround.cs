@@ -79,7 +79,7 @@ public class PlayerAlignToGround : MonoBehaviour
     }
     void OnAnimatorMove()
     {
-        Debug.Log(offset);
+        //Debug.Log(offset);
         parent.transform.position -= (parent.transform.position - offset) * 0.05f;
         //Debug.Log(offset);
         // m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * moveSpeed * m_Animator.deltaPosition.magnitude);

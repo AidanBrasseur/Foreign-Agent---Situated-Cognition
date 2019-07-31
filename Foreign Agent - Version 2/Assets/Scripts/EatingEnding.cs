@@ -17,6 +17,7 @@ public class EatingEnding : MonoBehaviour
     }
     IEnumerator cameraPan()
     {
+        player.GetComponent<Collider>().enabled = false;
         zoomedOutCam.SetActive(true);
         yield return new WaitForSeconds(2);
         //player.SetActive(false);
