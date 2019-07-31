@@ -21,7 +21,7 @@ Press space to send out your companion virus to see what happens.
 [title=THelperStart]
 <color=#ff00ffff><b>T-Helper</b></color> cells have been activated after the virus was engulfed by the macrophage!
 T-Helper cells stimulate all B-cells to differentiate into Plasma Cells!
-Run past the harmless macrophage and infect the final cell to complete your training.
+Run past the immobile macrophage and infect the final cell to complete your training.
 [title=THelperEnd]
 
 [title=deathStart]
