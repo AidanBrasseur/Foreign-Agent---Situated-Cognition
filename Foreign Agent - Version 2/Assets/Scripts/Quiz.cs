@@ -27,7 +27,6 @@ public class Quiz : MonoBehaviour
 		"",
 		"",
 		"What is the purpose of a Killer T Cell?",
-		"", // 1.2
 		"What is the function of a Helper T Cell?",
 		"What is the function of skin in the immune system?",
 		"What are antibodies?",
@@ -35,7 +34,7 @@ public class Quiz : MonoBehaviour
 		"When are memory cells created?",
 		"Which cells secrete antibodies?"
 	};
-	private int[] images = { 0, -1, -1, -1, 1, -1, -1, 2, -1, -1, 3, -1, 4, 5, 6, 7, 8, 9};
+	private int[] images = { 0, -1, -1, -1, 1, -1, -1, 2, -1, -1, 3, 4, 5, 6, 7, 8, 9};
 	private string[][] answers = {
 		new string[] { "Don't click me!", "correctAnswer I understand.", "I am a wrong answer!", "Incorrect!"},
 		new string[] { },
