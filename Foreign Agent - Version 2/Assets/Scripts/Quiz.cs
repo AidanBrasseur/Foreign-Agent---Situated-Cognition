@@ -95,7 +95,7 @@ public class Quiz : MonoBehaviour
 			float spriteHeight = spriteRect.height;
 			img.enabled = true;
 			img.sprite = quizImages[images[SceneManager.GetActiveScene().buildIndex]].sprite;
-			img.rectTransform.sizeDelta = new Vector2(300.0f / spriteRect.height * spriteWidth, 300);
+			img.rectTransform.sizeDelta = new Vector2(200.0f / spriteRect.height * spriteWidth, 200);
 		}
 
 	}
