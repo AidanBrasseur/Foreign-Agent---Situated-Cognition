@@ -18,7 +18,7 @@ public class playGame : MonoBehaviour
     private AudioSource cough;
 
     public void Start()
-    {
+    {  
         m_Animator = boy.GetComponent<Animator>();
         cough = boy.transform.Find("Cough").gameObject.GetComponent<AudioSource>();
         origColor = fade.color;

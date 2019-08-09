@@ -19,11 +19,17 @@ public class TutorialControllerScript : MonoBehaviour
     private bool firstCameraPan = false;
     public GameObject zoomedOutCam;
     public RPGTalk IntroTalk;
+    public GameObject pauseMenu;
+    private bool paused = false;
+    private UnityEngine.EventSystems.EventSystem myEventSystem;
+    public GameObject returnToGameButton;
+
     void Start()
     {
         m_Animator = player.GetComponent<Animator>();
 		companionScript = player.GetComponent<companionSpawn>();
 		grayScreen.enabled = true;
+        myEventSystem = GameObject.Find("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem>();
     }
     public void CancelControls()
     {
@@ -68,7 +74,19 @@ public class TutorialControllerScript : MonoBehaviour
             StartCoroutine(cameraPan());
             firstCameraPan = true;
         }
-       
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            paused = togglePause();
+            if (paused)
+            {
+                myEventSystem.SetSelectedGameObject(returnToGameButton);
+                returnToGameButton.GetComponent<Button>().OnSelect(null);
+                pauseMenu.GetComponent<Pause>().Display();
+            }
+            else
+                pauseMenu.GetComponent<Pause>().ReturnToGame();
+        }
+
     }
     
     public void flashPointer()
@@ -117,6 +135,18 @@ public class TutorialControllerScript : MonoBehaviour
         grayScreen.enabled = true;
         IntroTalk.NewTalk("IntroTalkStart", "IntroTalkEnd", IntroTalk.txtToParse);
     }
-
+    public bool togglePause()
+    {
+        if (Time.timeScale == 0f)
+        {
+            Time.timeScale = 1f;
+            return (false);
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            return (true);
+        }
+    }
 }
 
