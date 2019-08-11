@@ -1,8 +1,16 @@
 [title=IntroTalkStart]
-This is the second time infecting this area and will be your final and most difficult challenge yet!
-Good luck agent!
+OH NO! This human has been vaccinated!
+The immune system has been busy preparing memory cells and antibodies in preparation for us!
+This doesn't look good agent...Good luck.
 [title=IntroTalkEnd]
+
+[title=deathStart]
+The vaccination gave the immune sytem the strength to overcome our infection.
+This is the end of the road for this viral infection...we'll have to find a more unsuspecting host to infect next time!
+You're free to go agent. Good luck in the future!
+[title=deathEnd]
+
 [title=endLevelStart]
-You successfully infected this human and completed your last mission.
+You managed to complete the mission! I didn't think you were going to make it through such formidable defenses.
 You're free to go now. Good luck in the future agent!
 [title=endLevelEnd]

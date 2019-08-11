@@ -15,6 +15,12 @@ public class lastLevelController : MonoBehaviour
     private bool endPlayed = false;
     public AudioSource victorySound;
     public Image grayScreen;
+    public RPGTalk deathTalk;
+    public GameObject deathMenu;
+    private bool deathPlayed = false;
+    public Text TargetDestroyedDeath;
+    public Text TimeSpentDeath;
+    public GameObject PlayerCanvas;
     void Start()
     {
         m_Animator = player.GetComponent<Animator>();
@@ -40,6 +46,21 @@ public class lastLevelController : MonoBehaviour
     }
     void LateUpdate()
     {
+        if(GameController.Instance.death && !deathPlayed)
+        {
+            deathPlayed = true;
+            PlayerCanvas.SetActive(false);
+            CancelControls();
+            TargetDestroyedDeath.text = GameController.Instance.numCaptures.ToString() + " / " + GameController.Instance.numCellsInLevel.ToString();
+            float timeLeft = Time.timeSinceLevelLoad;
+            int min = Mathf.FloorToInt(timeLeft / 60);
+            int sec = Mathf.FloorToInt(timeLeft % 60);
+            TimeSpentDeath.text = min.ToString("00") + ":" + sec.ToString("00");
+            player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            player.GetComponent<Collider>().enabled = false;
+            player.gameObject.GetComponentInChildren<Renderer>().enabled = false;
+            deathTalk.NewTalk("deathStart", "deathEnd", deathTalk.txtToParse);
+        }
         if (!endPlayed && GameController.Instance.numCaptures == GameController.Instance.numCellsInLevel)
         {
             CancelControls();
@@ -53,6 +74,11 @@ public class lastLevelController : MonoBehaviour
     {
         victorySound.Play();
         endMenu.SetActive(true);
+        Time.timeScale = 0f;
+    }
+    public void activateDeathMenu()
+    {
+        deathMenu.SetActive(true);
         Time.timeScale = 0f;
     }
     public void activateCells()
