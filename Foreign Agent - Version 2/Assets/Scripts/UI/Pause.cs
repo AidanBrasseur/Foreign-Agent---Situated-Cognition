@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -20,6 +21,10 @@ public class Pause : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
+    }
+    public void ReturnToMain()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void ExitGame()
