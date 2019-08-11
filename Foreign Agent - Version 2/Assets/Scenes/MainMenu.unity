@@ -3725,5 +3725,10 @@ PrefabInstance:
       propertyPath: m_Padding.m_Left
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 7378062257748651877, guid: 713007cb622aeab45b2dbb645cae3c5a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.215
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713007cb622aeab45b2dbb645cae3c5a, type: 3}

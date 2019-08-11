@@ -14,8 +14,10 @@ public class Quiz : MonoBehaviour
 	public bool correct;
 	public Image[] quizImages;
 	public bool hideImage = false;
-	
-	private string[] questions = {
+    public AudioSource correctSound;
+    public AudioSource incorrectSound;
+
+    private string[] questions = {
 		"Throughout the game, these question panels will pop up from time to time to test your knowledge. To proceed, choose the right answer.",
 		"",
 		"",
@@ -108,7 +110,12 @@ public class Quiz : MonoBehaviour
 		if (correctIndex == answerInd)
 		{
 			correct = true;
+            correctSound.Play();
 		}
+        else
+        {
+            incorrectSound.Play();
+        }
 	}
 	public void Answer0()
 	{

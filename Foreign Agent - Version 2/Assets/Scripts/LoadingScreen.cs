@@ -12,8 +12,8 @@ public class LoadingScreen : MonoBehaviour
 	public TextMeshProUGUI tutorialText;
 	public GameObject quizPanel;
 	public bool enableQuiz;
-	
-	private readonly int[][] loadTextIndex = new int[][] // level index --> possible text
+
+    private readonly int[][] loadTextIndex = new int[][] // level index --> possible text
 	{
 		new int[]{0}, // MainMenu
 		new int[]{0 }, //Tutorial2
@@ -128,6 +128,8 @@ public class LoadingScreen : MonoBehaviour
             {
 				animator.SetTrigger("Hide");
                 didTriggerFadeOutAnimation = true;
+                quizPanel.SetActive(false);
+                this.enabled = false;
 
 				Destroy(gameObject, 5f);
             }
