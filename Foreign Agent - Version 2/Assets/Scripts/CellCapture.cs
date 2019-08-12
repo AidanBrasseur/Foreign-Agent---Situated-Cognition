@@ -25,6 +25,7 @@ public class CellCapture : MonoBehaviour
     private Color emisColour;
     private Renderer cellRenderer;
     private float colourTimer = 0f;
+    public GameObject minimapObj;
    
     void Start()
     {
@@ -81,6 +82,7 @@ public class CellCapture : MonoBehaviour
                     capturingSound.Stop();
                 colourTimer = 0f;
                 cellPop.Play();
+                minimapObj.SetActive(false);
                 companionSpawn.Instance.numCompanions += 1;
                 GameController.Instance.numCaptures += 1; //temporary
                 capped = true;

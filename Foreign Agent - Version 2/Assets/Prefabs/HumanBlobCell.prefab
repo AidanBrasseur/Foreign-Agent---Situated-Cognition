@@ -496,6 +496,7 @@ MonoBehaviour:
   currTime: 0
   capped: 0
   disruptionAnim: {fileID: 100002, guid: db50ab1c866680e4bb870bf5eb72dd3d, type: 3}
+  minimapObj: {fileID: 6325445122840448688}
 --- !u!1 &8663401810421478554
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +985,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e0b14974dae7bc4bb1cdb555940835f, type: 3}
+--- !u!1 &6325445122840448688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5739250393781308104, guid: 7e0b14974dae7bc4bb1cdb555940835f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1760229056155665528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6325445122840448689 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5739250393781308105, guid: 7e0b14974dae7bc4bb1cdb555940835f,
