@@ -24,6 +24,7 @@ public class Pause : MonoBehaviour
     }
     public void ReturnToMain()
     {
+		Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 

@@ -5,7 +5,7 @@ This doesn't look good agent...Good luck.
 [title=IntroTalkEnd]
 
 [title=deathStart]
-The vaccination gave the immune sytem the strength to overcome our infection.
+The vaccination gave the immune system the strength to overcome our infection.
 This is the end of the road for this viral infection...we'll have to find a more unsuspecting host to infect next time!
 You're free to go agent. Good luck in the future!
 [title=deathEnd]
