@@ -68,7 +68,7 @@ public class TcellPatrol : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "companion" ||other.gameObject.tag == "antibody")
+        if (other.gameObject.tag == "companion" ||other.gameObject.tag == "antibody" || other.gameObject.layer == LayerMask.NameToLayer("Macrophages"))
         {
             Physics.IgnoreCollision(other.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
         }
