@@ -49,7 +49,6 @@ public class Quiz : MonoBehaviour
 		new string[] { },
 		new string[] { },
 		new string[] {"correctAnswer Kill infected cells", "Kill foreign agents directly", "Produce antibodies", "Transport nutrients"},
-		new string[] { },
 		new string[] {"Transport nutrients to other cells in the immune system", "correctAnswer Activate B cells and aid Killer T cells", "Stimulate growth of macrophages", "Produce antibodies to help slow down foreign particles" },
 		new string[] {"correctAnswer Prevents infectious organisms from entering the body", "Nothing", "Contains macrophages and cytotoxic T cells, which exterminate infectious organisms", "Alerts the immune system and prepare it to deal with foreign organisms"},
 		new string[] {"A specialized B cell", "A type of white blood cell", "A Y-shaped carbohydrate group", "correctAnswer A Y-shaped protein"},
