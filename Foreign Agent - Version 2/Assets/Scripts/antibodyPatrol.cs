@@ -51,7 +51,7 @@ public class antibodyPatrol : MonoBehaviour
         // Choose the next destination point when the agent gets
         // close to the current one.
         
-        if (Vector3.Distance(agent.transform.position, player.transform.position) < 1f) 
+        if (Vector3.Distance(agent.transform.position, player.transform.position) < 1.15f) 
         {
             Destroy(agent.gameObject);
             for (int i = 0; i < macrophages.Length; i++)
