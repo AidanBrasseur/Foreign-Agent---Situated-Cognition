@@ -123,7 +123,7 @@ public class GameController : MonoBehaviour
             int tries = 0;
 
             Vector3 spawn = new Vector3(0, 0, 0);
-            while (!validSpawn && tries < 15000)
+            while (!validSpawn && tries < 25000)
             {
 
                 spawn = Random.insideUnitSphere * 3.25f + player.transform.position;
