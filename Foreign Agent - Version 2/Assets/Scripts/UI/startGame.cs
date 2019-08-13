@@ -29,5 +29,6 @@ public class startGame : MonoBehaviour
     {
         loadingScreen.GetComponent<LoadingScreen>().enableQuiz = false;
         loadingScreen.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(index));
+        levelSelect.SetActive(false);
     }
 }
